@@ -47,12 +47,12 @@ function setup() {
   ground.y = 180 ;
   
   
-  gameOver = createSprite(300,100)
+  gameOver = createSprite(camera.x,100)
   gameOver.addImage("gameOver",gameOverImage)
   gameOver.scale = 0.5;
   gameOver.visible = false;
   
-  restart = createSprite(300,180)
+  restart = createSprite(camera.x,180)
   restart.addImage("restart",restartImage)
   restart.scale = 0.5;
   restart.visible = false;
@@ -79,12 +79,12 @@ function draw() {
   }
   if(keyDown("RIGHT_ARROW")) {
   ground.velocityX = -(6+3*score/100);
-  camera.position.x = trex.x+250;
+  camera.position.x = trex.x;
   trex.x = 50;
   }
   if(keyWentUp("RIGHT_ARROW")) {
     ground.velocityX = 0
-    camera.position.x = trex.x+250;
+    camera.position.x = trex.x;
     trex.addImage("standing",trex_standing)
     obstacle.velocityX = 0
     }
@@ -96,7 +96,7 @@ function draw() {
   trex.velocityY = trex.velocityY + 0.8
   
   if (ground.x < 0){
-    ground.x = ground.width/2;
+    ground.x = ground.width/3;
   }
   spawnClouds();
   spawnObstacles();
