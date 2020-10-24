@@ -71,7 +71,8 @@ function draw() {
   camera.position.y = 100
   fill("red")
   textSize(21)
-  text("Score: "+ score, 500,50);
+  text("Score: "+ score, 200,50);
+  camera.position.x = trex.x;
   if (gameState === PLAY){
     trex.x = 50;
   if(keyDown("RIGHT_ARROW")){
@@ -161,7 +162,7 @@ function spawnClouds() {
 
 function spawnObstacles() {
  
-    if(obstacle.x<10){
+    if(obstacle.x<camera.x-300){
     obstacle.x = 670;
     }
  
